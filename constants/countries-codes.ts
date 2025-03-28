@@ -1,0 +1,26 @@
+const arabicCountries = [
+  { name: "Egypt", code: "+20", flag: "https://flagcdn.com/w40/eg.png" },
+  {
+    name: "Saudi Arabia",
+    code: "+966",
+    flag: "https://flagcdn.com/w40/sa.png",
+  },
+  { name: "UAE", code: "+971", flag: "https://flagcdn.com/w40/ae.png" },
+  { name: "Qatar", code: "+974", flag: "https://flagcdn.com/w40/qa.png" },
+  { name: "Kuwait", code: "+965", flag: "https://flagcdn.com/w40/kw.png" },
+  { name: "Bahrain", code: "+973", flag: "https://flagcdn.com/w40/bh.png" },
+  { name: "Oman", code: "+968", flag: "https://flagcdn.com/w40/om.png" },
+  { name: "Lebanon", code: "+961", flag: "https://flagcdn.com/w40/lb.png" },
+  { name: "Algeria", code: "+213", flag: "https://flagcdn.com/w40/dz.png" },
+  { name: "Morocco", code: "+212", flag: "https://flagcdn.com/w40/ma.png" },
+  { name: "Tunisia", code: "+216", flag: "https://flagcdn.com/w40/tn.png" },
+  { name: "Yemen", code: "+967", flag: "https://flagcdn.com/w40/ye.png" },
+  { name: "Sudan", code: "+249", flag: "https://flagcdn.com/w40/sd.png" },
+  { name: "Palestine", code: "+970", flag: "https://flagcdn.com/w40/ps.png" },
+  { name: "Iraq", code: "+964", flag: "https://flagcdn.com/w40/iq.png" },
+  { name: "Syria", code: "+963", flag: "https://flagcdn.com/w40/sy.png" },
+  { name: "Mauritania", code: "+222", flag: "https://flagcdn.com/w40/mr.png" },
+  { name: "Jordan", code: "+962", flag: "https://flagcdn.com/w40/jo.png" },
+  { name: "Somalia", code: "+252", flag: "https://flagcdn.com/w40/so.png" },
+];
+export default arabicCountries;

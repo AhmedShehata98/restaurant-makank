@@ -1,0 +1,262 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme {
+  /* text color */
+  --color-text-color-default: var(--text-color-default);
+
+  /* Primary color */
+  --color-app-primary-50: var(--primary-color-50);
+  --color-app-primary-100: var(--primary-color-100);
+  --color-app-primary-200: var(--primary-color-200);
+  --color-app-primary-300: var(--primary-color-300);
+  --color-app-primary-400: var(--primary-color-400);
+  --color-app-primary-500: var(--primary-color-500);
+  --color-app-primary-600: var(--primary-color-600);
+  --color-app-primary-700: var(--primary-color-700);
+  --color-app-primary-800: var(--primary-color-800);
+  --color-app-primary-900: var(--primary-color-900);
+  --color-app-primary-950: var(--primary-color-950);
+
+  /* secondary color */
+  --color-app-secondary-50: var(--secondary-color-50);
+  --color-app-secondary-100: var(--secondary-color-100);
+  --color-app-secondary-200: var(--secondary-color-200);
+  --color-app-secondary-300: var(--secondary-color-300);
+  --color-app-secondary-400: var(--secondary-color-400);
+  --color-app-secondary-500: var(--secondary-color-500);
+  --color-app-secondary-600: var(--secondary-color-600);
+  --color-app-secondary-700: var(--secondary-color-700);
+  --color-app-secondary-800: var(--secondary-color-800);
+  --color-app-secondary-900: var(--secondary-color-900);
+  --color-app-secondary-950: var(--secondary-color-950);
+
+  /* background color */
+  --color-app-background-50: var(--background-color-50);
+  --color-app-background-100: var(--background-color-100);
+  --color-app-background-200: var(--background-color-200);
+  --color-app-background-300: var(--background-color-300);
+  --color-app-background-400: var(--background-color-400);
+  --color-app-background-500: var(--background-color-500);
+  --color-app-background-600: var(--background-color-600);
+  --color-app-background-700: var(--background-color-700);
+  --color-app-background-800: var(--background-color-800);
+  --color-app-background-900: var(--background-color-900);
+
+  /* Third color */
+  --color-app-third-50: var(--third-color-50);
+  --color-app-third-100: var(--third-color-100);
+  --color-app-third-200: var(--third-color-200);
+  --color-app-third-300: var(--third-color-300);
+  --color-app-third-400: var(--third-color-400);
+  --color-app-third-500: var(--third-color-500);
+  --color-app-third-600: var(--third-color-600);
+  --color-app-third-700: var(--third-color-700);
+  --color-app-third-800: var(--third-color-800);
+  --color-app-third-900: var(--third-color-900);
+  --color-app-third-950: var(--third-color-950);
+
+  --color-app-subtitle-default: var(--subtitle-color-default);
+
+  --color-input-hint-default: var(--input-hint-color-default);
+
+  --color-ms-color-default: var(--ms-color-default);
+
+  --color-green-default: var(--green-color-default);
+
+  --color-red-default: var(--red-color-default);
+
+  --font-primary: var(--font-primary);
+  --font-secondary: var(--font-secondary);
+
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-tablet: 992px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  --breakpoint-3xl: 1920px;
+}
+
+:root {
+  --container-width: clamp(410px, 80vw, 1280px);
+  --container-padding: clamp(0.75rem, 1.5vw, 4rem);
+  --primary-color-50: #fef2f0;
+  --primary-color-100: #fde6e2;
+  --primary-color-200: #fac3b8;
+  --primary-color-300: #f7a08e;
+  --primary-color-400: #f47d64;
+  --primary-color-500: #f15a3a;
+  --primary-color-600: #da4722;
+  --primary-color-700: #b63a1c;
+  --primary-color-800: #922d15;
+  --primary-color-900: #6e220f;
+  --primary-color-950: #3a120a;
+  --secondary-color-50: #f0f5fe;
+  --secondary-color-100: #e0eafd;
+  --secondary-color-200: #c7d9fb;
+  --secondary-color-300: #9dbdf7;
+  --secondary-color-400: #699cf1;
+  --secondary-color-500: #2060d4;
+  --secondary-color-600: #1d4fb4;
+  --secondary-color-700: #1a3f94;
+  --secondary-color-800: #163576;
+  --secondary-color-900: #132c61;
+  --secondary-color-950: #0c1b3d;
+  --third-color-50: #fafafa;
+  --third-color-100: #f5f5f5;
+  --third-color-200: #e9e9e9;
+  --third-color-300: #d6d6d6;
+  --third-color-400: #a3a3a3;
+  --third-color-500: #8c8c8c;
+  --third-color-600: #737373;
+  --third-color-700: #525252;
+  --third-color-800: #404040;
+  --third-color-900: #262626;
+  --third-color-950: #171717;
+  --background-color: #fafafa;
+  --background-color-50: #ffffff;
+  --background-color-100: #fefefe;
+  --background-color-200: #fdfdfd;
+  --background-color-300: #fcfcfc;
+  --background-color-400: #fbfbfb;
+  --background-color-500: #fafafa;
+  --background-color-600: #e3e3e3;
+  --background-color-700: #c7c7c7;
+  --background-color-800: #a6a6a6;
+  --background-color-900: #8a8a8a;
+  --background-color-950: #525252;
+  --green-color-default: #027a48;
+  --font-primary: "Cairo", sans-serif;
+  --font-secondary: "Inter", serif;
+
+  --header-z-index: 1001;
+  --modal-z-index: 1002;
+}
+
+.app-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding-inline: var(--container-padding);
+  transition: max-width 0.5s ease-in-out, padding 0.5s ease-in-out,
+    margin 0.5s ease-in-out;
+}
+.container-fluid {
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  transition: max-width 0.5s ease-in-out, padding 0.5s ease-in-out,
+    margin 0.5s ease-in-out;
+}
+body {
+  font-family: var(--font-primary);
+}
+
+@layer utilities {
+  /* Scrollbar width */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Scrollbar track */
+  .scrollbar-track::-webkit-scrollbar-track {
+    background: var(--background-color-500);
+  }
+
+  /* Scrollbar thumb */
+  .scrollbar-thumb::-webkit-scrollbar-thumb {
+    background: var(--secondary-color-500);
+    border-radius: 5px;
+  }
+
+  /* Hover effect */
+  .scrollbar-thumb:hover::-webkit-scrollbar-thumb {
+    background: var(--secondary-color-400);
+  }
+
+  /* Hide scrollbar */
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer components {
+  .dynamic-text {
+    color: color-mix(in srgb, var(--secondary-color-500), black 100%);
+  }
+
+  .btn {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 14px;
+    padding-right: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    background-color: var(--primary-color-500);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--primary-color-400);
+  }
+
+  .btn-primary-outline {
+    color: var(--primary-color-500);
+    border: 1px solid var(--primary-color-500);
+    background-color: var(--background-color-500);
+  }
+
+  .btn-primary-outline:hover {
+    background-color: var(--background-color-500);
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    background-color: var(--secondary-color-500);
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--secondary-color-500);
+  }
+
+  /* Secondary outline button */
+  .btn-secondary-outline {
+    color: var(--secondary-color-500);
+    border: 1px solid var(--secondary-color-500);
+    background-color: var(--background-color-500);
+  }
+
+  .btn-secondary-outline:hover {
+    background-color: var(--background-color-400);
+  }
+
+  /* Black button */
+  .btn-black {
+    background-color: black;
+    color: white;
+  }
+
+  .btn-black:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  /* Black outline button */
+  .btn-black-outline {
+    color: black;
+    border: 1px solid black;
+    background-color: #ffffff;
+  }
+
+  .btn-black-outline:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+}

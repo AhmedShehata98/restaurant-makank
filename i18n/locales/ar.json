@@ -1,0 +1,392 @@
+{
+  "layouts": {
+    "header": {
+      "nav": {
+        "home": "الرئيسية",
+        "menu": "قائمة الطعام",
+        "offers": "العروض والخصومات",
+        "orders": "طلبي",
+        "checkout": "دفع",
+        "profile": "حسابي",
+        "addingAddress": "إضافة عنوان جديد"
+      },
+      "localesMenu": {
+        "en-US": "English",
+        "ar-SA": "العربىة"
+      },
+      "userActionsMenu": {
+        "login": {
+          "text": "تسجيل الدخول",
+          "markedWords": "الدخول"
+        },
+        "profile": "الملف الشخصي",
+        "logout": "تسجيل خروج"
+      },
+      "notifications": {
+        "title": "اشعارات",
+        "markRead": "تحديد الكل كمقروء"
+      }
+    },
+    "footer": {
+      "description": "لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل  وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ",
+      "socialMedia": {
+        "facebook": "فيسبوك",
+        "instagram": "انستجرام",
+        "twitter": "تويتر",
+        "youtube": "يوتيوب",
+        "linkedin": "لينكد إن",
+        "whatsapp": "واتساب"
+      },
+      "websiteLinks": {
+        "title": "روابط الموقع",
+        "links": {
+          "home": "الرئيسية",
+          "contactUs": "اتصل بنا",
+          "menu": "قائمة الطعام",
+          "offers": "العروض والخصومات",
+          "privacyPolicy": "سياسة الخصوصية",
+          "cart": "سلة المشتريات",
+          "featuredDishes": "الأطباق المميزة",
+          "aboutUs": "عن المطعم"
+        }
+      },
+      "termsAndConditions": "سياسة الخصوصية و شروط الإستخدام",
+      "copyright": "© 2024 جميع الحقوق محفوظة",
+      "categories": {
+        "title": "أصناف قائمة الطعام",
+        "grills": "مشويات",
+        "burger": "برجر",
+        "appetizers": "مقبلات",
+        "syrian": "سوري",
+        "asian": "اسيوي"
+      }
+    },
+    "navigationBar": {
+      "links": {
+        "home": "الرئيسية",
+        "products": "قائمة الطعام",
+        "orders": "طلبي",
+        "profile": "حسابي"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "sections": {
+        "hero": {
+          "searchPlaceholder": "بحث",
+          "restaurantState": {
+            "closed": {
+              "title": "المطعم مغلق الآن",
+              "description": "سيتم معاودة العمل "
+            }
+          },
+          "welcome": "مرحبا بك!",
+          "title": "نقدم تشكيلة متنوعة من الأطباق اللذيذة ",
+          "titleHighlightWords": ["متنوعة", "الأطباق"],
+          "description": "نقدم تشكيلة متنوعة من الأطباق اللذيذة مع عروض وخصومات مميزة وتوصيل سريع للمنزل",
+          "ctaButton": "أطلب الآن"
+        },
+        "offers": {
+          "infos": {
+            "location": "العنوان",
+            "phone": "رقم الهاتف"
+          }
+        },
+        "ourMenu": {
+          "title": "قائمة الطعام الخاصة بنا",
+          "description": "لدينا الكثير من الأطعمة المتنوعة والتي تكون طازجة حالما يتم طلبها",
+          "fullMenuButton": "عرض القائمة كاملة",
+          "featuredDishesButton": "الأطباق المميزة"
+        },
+        "orderSummeryComponent": {
+          "title": "أكمل طلبك الآن",
+          "description": "سيتم التوصيل في غضون 15 دقيقة من وقت تجهز الطلب واشعارك بذلك",
+          "dishesCount": "عدد الأطباق",
+          "total": "المجموع الكلي",
+          "cta": "إكمال الطلب"
+        },
+        "deliveryServices": {
+          "title": "مطعمنا يقدم تشكيلة متنوعة من الأطباق اللذيذة مع عروض وخصومات مميزة",
+          "highlightedWords": ["اللذيذة", "الأطباق"],
+          "services": {
+            "delivery": "يتم التوصيل لمنطقتي الرياض والدمام",
+            "deliveryTiming": "يتم التوصيل بأقصى سرعة في مدة لا تتجاوز 15 دقيقة من وقت تجهيز الطلب",
+            "fees": "لا يوجد أي رسوم إضافية عند التوصيل",
+            "deliveryType": "يمكنك الإتصال لتجهيز طلبك وأخذه من المطعم بنفسك او تناولة داخل المطعم"
+          },
+          "primaryButton": "اطلب الآن",
+          "secondaryButton": "المزيد عنَّا"
+        },
+        "featuredDishes": {
+          "title": "الأطباق المميزة",
+          "fullMenuButton": "عرض الكل"
+        },
+        "downloadApp": {
+          "title": "حمل تطبيق مكانك الآن",
+          "description": "قم بأخذ خطوة وأستمتع بتطبيق مكانك في أي وقت وأي مكان لتكون دائما على دراية بالعروض الجديدة"
+        },
+        "offersAndDiscounts": {
+          "title": "العروض والخصومات"
+        },
+        "poster": {
+          "title": "هل تشعر بالجوع الآن ",
+          "subtitle": "أطلب الآن",
+          "description": "واستمتع بأول طلب لك وتوصيل مجاني",
+          "cta": "أطلب الآن"
+        }
+      }
+    },
+    "menu": {
+      "offersBanner": {
+        "partOne": "باقي مبلغ 21 ريال سعودي حتى تستمتع بالتوصيل المجاني",
+        "partTwo": "أكمل طلبك واستمتع بالعرض الآن"
+      },
+      "title": "ماذا تريد أن تطلب اليوم",
+      "mobileTitle": {
+        "text": "قائمة الطعام",
+        "markWords": ["الطعام"]
+      },
+      "description": "لدينا الكثير من الأطعمة المتنوعة والتي تكون طازجة حالما يتم طلبها.",
+      "searchPlaceholder": "بحث",
+      "cta": "القائمة بالكامل",
+      "categories": {
+        "grills": "مشويات",
+        "burger": "برجر",
+        "appetizers": "مقبلات",
+        "syrian": "سوري",
+        "asian": "اسيوي",
+        "drinks": "مشروبات"
+      }
+    },
+    "productDetails": {
+      "currency": "ريال سعودي",
+      "sizes": "الحجم",
+      "extras": "الاضافات",
+      "adToCartButton": "اضافة لطلباتي",
+      "aboutProduct": "عن الوجبة",
+      "relatedProducts": "المزيد من أطباقنا الشهية",
+      "relatedProductsCta": "عرض القائمة كاملة"
+    },
+    "orders": {
+      "signinTitle": "سجل الدخول الآن لاستكمال الطلب",
+      "singinForm": {
+        "title": "رقم الهاتف",
+        "submitBtn": "تسجيل الدخول",
+        "confirmBtn": "تأكيد",
+        "confirmNameBtn": "تأكيد الإسم",
+        "confirmTitle": "تأكيد رقم الهاتف",
+        "confirmDescription": "لقد تم إرسال رسالة تأكيد لرقم هاتفك.",
+        "clientNameTitle": "أدخل اسمك",
+        "clientName": "اسمك",
+        "reSendHint": "إعادة إرسال بعد"
+      },
+      "submissionBtn": "استكمال الطلب",
+      "itemsCount": "عدد الأطباق",
+      "total": "المجموع الكلي",
+      "relatedProducts": "المزيد من أطباقنا الشهية",
+      "relatedProductsCta": "عرض القائمة كاملة"
+    },
+    "checkout": {
+      "offersBanner": {
+        "partOne": "باقي مبلغ 21 ريال سعودي حتى تستمتع بالتوصيل المجاني",
+        "partTwo": "أكمل طلبك واستمتع بالعرض الآن"
+      },
+      "freeShippingBanner": {
+        "description": "طلبك مؤهل للشحن المجاني لتخطيك المبلغ المناسب (141 ريال سعودي)",
+        "exteaDescripe": "نحن دائما نرحب بك"
+      },
+      "productsCount": "عدد الأطباق",
+      "form": {
+        "title": "تفاصيل الطلب",
+        "phoneNumber": "تأكيد رقم الهاتف",
+        "name": "تأكيد الإسم",
+        "address": "العنوان بالتفصيل",
+        "addAddressBtn": "إضافة عنوان جديد",
+        "selectAddressPlaceholder": "اختر",
+        "pickUpFromLocation": "استلام من المكان",
+        "couponPlaceholder": "كود الخصم",
+        "couponApplyBtn": "تطبيق الخصم",
+        "choosePaymentMethod": "حدد وسيلة الدفع",
+        "checkoutBtn": "دفع"
+      },
+      "orderInfo": {
+        "orderTotalPrice": "مجموع الطلبات",
+        "totalPrice": "مجموع الطلبات",
+        "total": "المجموع الكلي",
+        "delivery": "التوصيل",
+        "discount": "الخصم",
+        "tax": "الضريبة"
+      },
+      "model": {
+        "title": "تم تأكيد الطلب بنجاح",
+        "description": "سيتم التواصل معك عند تحرك سائق التوصيل وللإسفسار {phoneNumber}",
+        "submitBtn": "قائمة الطعام",
+        "cancelBtn": "طلباتي"
+      }
+    },
+    "profile": {
+      "helpText": "هل تواجهك أية مشاكل أو استفسارات ؟",
+      "helpBtn": "الدعم الفني",
+      "menuLinks": {
+        "editName": "تعديل الاسم",
+        "aboutUs": "عن المطعم",
+        "privacyAndPolicy": "سياسة الخصوصية وشروط الإستخدام",
+        "language": "اللغة",
+        "notifications": "تلقي الإشعارات",
+        "callCenter": "الدعم الفني",
+        "callCenterBtn": "تواصل الآن",
+        "deleteAccount": "حذف حسابي!",
+        "orders": "طلباتي",
+        "address": "عنوايني",
+        "logout": "تسجيل الخروج",
+        "locales": {
+          "ar": "العربية",
+          "en": "الانجليزية"
+        }
+      },
+      "actions": {
+        "orders": "طلباتي",
+        "address": "عنوايني"
+      },
+      "tabs": {
+        "currentOrders": "الطلبات الحالية",
+        "prevOrders": "الطلبات السابقة"
+      },
+      "ordersFilters": {
+        "lastSixMounth": "آخر 6 أشهر",
+        "lastMonth": "آخر شهر",
+        "lastWeek": "آخر أسبوع",
+        "lastDay": "آخر يوم"
+      },
+      "ordersContent": {
+        "currentOrdersContent": {
+          "callCenterBtn": "دعم العملاء",
+          "orderTracker": {
+            "OrderNo": "رقم الطلب",
+            "OrderDate": "تاريخ الطلب",
+            "OrderStatus": "حالة الطلب",
+            "OrderInProcessStatus": "الطلب قيد التنفيذ",
+            "OrderCompletedStatus": "جاهز وفي الطريق"
+          },
+          "orderDetails": {
+            "orderData": {
+              "orderNo": "رقم الطلب",
+              "orderDate": "تاريخ الطلب",
+              "ShippingToHome": "توصيل للمنزل",
+              "title": "بيانات الطلب"
+            },
+            "meData": {
+              "title": "معلوماتي"
+            },
+            "paymentData": {
+              "title": "بيانات الدفع",
+              "total": "المجموع الكلي",
+              "ordersTotal": "مجموع الطلبات",
+              "delivery": "التوصيل",
+              "discount": "الخصم",
+              "tax": "الضريبة"
+            }
+          }
+        },
+        "previousOrdersContent": {
+          "callCenterBtn": "دعم العملاء",
+          "orderTracker": {
+            "OrderNo": "رقم الطلب",
+            "OrderDate": "تاريخ الطلب",
+            "OrderStatus": "حالة الطلب"
+          },
+          "orderDetails": {
+            "orderData": {
+              "orderNo": "رقم الطلب",
+              "orderDate": "تاريخ الطلب",
+              "ShippingToHome": "توصيل للمنزل",
+              "title": "بيانات الطلب"
+            },
+            "meData": {
+              "title": "معلوماتي"
+            },
+            "paymentData": {
+              "title": "بيانات الدفع",
+              "total": "المجموع الكلي",
+              "totalPrice": "مجموع الطلبات",
+              "delivery": "التوصيل",
+              "discount": "الخصم",
+              "tax": "الضريبة"
+            }
+          },
+          "reOrderAllBtn": "إعادة طلب الكل",
+          "reOrderBtn": "إعادة طلب",
+          "reviewHint": "شاركنا برأيك لان رضاك يهمنا !",
+          "more": "المزيد",
+          "reviewModal": {
+            "title": "تقييم طلبك",
+            "notes": "الملاحظات",
+            "actions": {
+              "submit": "تقييم",
+              "cancel": "إلغاء"
+            }
+          }
+        }
+      },
+      "addressContent": {
+        "title": "من فضلك حدد العنوان الإفتراضي",
+        "addBtn": "أضف عنوان جديد",
+        "addressConfirmBtn": "تأكيد العنوان على الخريطة",
+        "form": {
+          "searchPlaceholder": "بحث",
+          "addressName": "اسم العنوان",
+          "street": "الشارع",
+          "streetPlaceholder": "اسم الشارع",
+          "neighborhoodPlaceholder": "اسم الحي",
+          "mapLocationPlaceholder": "حدد على الخريطة",
+          "landmarkPlaceholder": "اكتب هنا",
+          "country": "الدولة",
+          "locationInMaps": "المكان على الخريطة",
+          "city": "المدينة",
+          "neighborhood": "الحي",
+          "nearestLandmark": "أقرب معلم",
+          "optional": "اختياري",
+          "submitBtn": "إضافة كعنوان جديد"
+        }
+      }
+    }
+  },
+  "components": {},
+  "modals": {
+    "rating": {
+      "title": "تقييم طلبك",
+      "notes": "الملاحظات",
+      "actions": {
+        "submit": "تقييم",
+        "cancel": "إلغاء"
+      }
+    },
+    "signIn": {
+      "loginView": {
+        "title": "تسجيل الدخول",
+        "description": "مرحباً بك!",
+        "form": {
+          "label": "رقم الهاتف",
+          "placeholder": "123 456 789"
+        },
+        "submitBtn": "تسجيل الدخول"
+      },
+      "otpView": {
+        "title": "تأكيد رقم الهاتف",
+        "description": "لقد تم إرسال رسالة تأكيد لرقم هاتفك.",
+        "resendBtn": "إعادة إرسال بعد",
+        "submitBtn": "تأكيد"
+      },
+      "createAccountView": {
+        "title": "إنشاء حساب جديد",
+        "description": "انصم إلينا الآن",
+        "form": {
+          "label": "الإسم",
+          "placeholder": "الإسم"
+        },
+        "submitBtn": "تأكيد الإسم"
+      }
+    }
+  }
+}
