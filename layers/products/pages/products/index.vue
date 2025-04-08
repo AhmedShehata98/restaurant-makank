@@ -139,6 +139,10 @@ import { useSettingsStore } from "@/store/settings-store";
 import clsx from "clsx";
 import { useMediaQuery } from "@vueuse/core";
 
+const { locale, tm, t } = useI18n();
+useHead({
+  titleTemplate: (prevTitle) => `${prevTitle} | ${t("pages.menu.seo.title")}`,
+});
 const tabsRef = ref(null);
 useSwiper(tabsRef, {
   loop: false,
@@ -232,7 +236,6 @@ const menu = [
   },
 ];
 
-const { locale, tm, t } = useI18n();
 const router = useRouter();
 const settingsStore = useSettingsStore();
 const isSmallScreen = useMediaQuery("(max-width: 768px)");

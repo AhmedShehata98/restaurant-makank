@@ -1,7 +1,7 @@
 <template>
   <section class="app-container flex flex-col h-fit">
     <div
-      class="flex items-center justify-between flex-wrap gap-3 w-full mt-16 mb-14"
+      class="flex items-center justify-between flex-wrap gap-3 w-full mt-10 tablet:mt-16 mb-4 tablet:mb-14"
     >
       <h2
         class="text-[16px] md:text-[40px] font-semibold md:font-bold text-app-text-default"

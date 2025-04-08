@@ -5,7 +5,7 @@
   >
     <span class="w-full h-48 flex items-center justify-center flex-col">
       <figure
-        class="flex items-center justify-center size-28 mb-4 bg-app-background-600 rounded-full"
+        class="flex items-center justify-center size-28 mb-4 bg-app-background-600/50 rounded-full"
       >
         <!-- <img src="https://picsum.photos/200/300" alt="Profile picture" />
               -->
@@ -19,7 +19,7 @@
       <NuxtLinkLocale
         v-for="link of links"
         :key="link.label"
-        v-bind="link.to"
+        :href="link.to"
         class="flex items-center justify-between gap-5 py-3 hover:opacity-80 text-text-color-default"
       >
         <span
@@ -177,7 +177,7 @@ const links = computed(() => [
     icon: "hugeicons:security",
     label: t("pages.profile.menuLinks.privacyAndPolicy"),
     to: {
-      path: ROUTES.PROFILE__ABOUT_US,
+      path: "/" + ROUTES.PRIVAICY_CONDITIONS,
     },
   },
 ]);

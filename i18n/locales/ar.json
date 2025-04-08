@@ -8,7 +8,9 @@
         "orders": "طلبي",
         "checkout": "دفع",
         "profile": "حسابي",
-        "addingAddress": "إضافة عنوان جديد"
+        "addingAddress": "إضافة عنوان جديد",
+        "address": "عنوايني",
+        "termsOfPrivacy": "سياسة الخصوصية و شروط الإستخدام"
       },
       "localesMenu": {
         "en-US": "English",
@@ -72,6 +74,9 @@
   },
   "pages": {
     "home": {
+      "seo": {
+        "title": "الرئيسية"
+      },
       "sections": {
         "hero": {
           "searchPlaceholder": "بحث",
@@ -138,6 +143,9 @@
       }
     },
     "menu": {
+      "seo": {
+        "title": "قائمة الطعام"
+      },
       "offersBanner": {
         "partOne": "باقي مبلغ 21 ريال سعودي حتى تستمتع بالتوصيل المجاني",
         "partTwo": "أكمل طلبك واستمتع بالعرض الآن"
@@ -169,6 +177,9 @@
       "relatedProductsCta": "عرض القائمة كاملة"
     },
     "orders": {
+      "seo": {
+        "title": "طلبياتي"
+      },
       "signinTitle": "سجل الدخول الآن لاستكمال الطلب",
       "singinForm": {
         "title": "رقم الهاتف",
@@ -188,6 +199,9 @@
       "relatedProductsCta": "عرض القائمة كاملة"
     },
     "checkout": {
+      "seo": {
+        "title": "بيانات الدفع"
+      },
       "offersBanner": {
         "partOne": "باقي مبلغ 21 ريال سعودي حتى تستمتع بالتوصيل المجاني",
         "partTwo": "أكمل طلبك واستمتع بالعرض الآن"
@@ -226,8 +240,12 @@
       }
     },
     "profile": {
+      "seo": {
+        "title": "حسابي"
+      },
       "helpText": "هل تواجهك أية مشاكل أو استفسارات ؟",
       "helpBtn": "الدعم الفني",
+
       "menuLinks": {
         "editName": "تعديل الاسم",
         "aboutUs": "عن المطعم",
@@ -333,6 +351,8 @@
         "title": "من فضلك حدد العنوان الإفتراضي",
         "addBtn": "أضف عنوان جديد",
         "addressConfirmBtn": "تأكيد العنوان على الخريطة",
+        "editHeadingTitle": "تعديل العنوان",
+        "addHeadingTitle": "إضافة عنوان جديد",
         "form": {
           "searchPlaceholder": "بحث",
           "addressName": "اسم العنوان",
@@ -347,12 +367,68 @@
           "neighborhood": "الحي",
           "nearestLandmark": "أقرب معلم",
           "optional": "اختياري",
-          "submitBtn": "إضافة كعنوان جديد"
+          "submitBtn": "إضافة كعنوان جديد",
+          "saveBtn": "حفظ التعديلات",
+          "confirmBtn": "إضافة"
+        }
+      },
+      "mobile": {
+        "editName": {
+          "title": "تعديل الاسم",
+          "form": {
+            "label": "الإسم",
+            "saveBtn": "حفظ التعديلات"
+          }
+        },
+        "address": {
+          "title": "عناويني",
+          "description": "من فضلك حدد العنوان الإفتراضي"
+        },
+        "orderDetails": {
+          "title": "تفاصيل الطلب",
+          "plateNumber": "رقم اللوحة",
+          "notes": "الملاحظات",
+          "review": "شاركنا برأيك لان رضاك يهمنا !",
+          "customerService": "دعم العملاء",
+          "reOrderAll": "إعادة طلب الكل"
+        }
+      }
+    },
+    "termsOfPrivacy": {
+      "title": "سياسة الخصوصية و شروط الإستخدام"
+    },
+    "about": {
+      "title": "عن المطعم",
+      "location": "العنوان",
+      "phoneNumber": "رقم الهاتف",
+      "firstSection": {
+        "heading": "نقدم تشكيلة متنوعة من الأطباق اللذيذة ",
+        "headingHilightWords": {
+          "wordOne": "متنوعة",
+          "wordTwo": "الأطباق"
+        },
+        "description": "نقدم تشكيلة متنوعة من الأطباق اللذيذة مع عروض وخصومات مميزة وتوصيل سريع للمنزل"
+      },
+      "secondSection": {
+        "heading": "نقدم تشكيلة متنوعة من امطعمنا يقدم تشكيلة متنوعة من الأطباق اللذيذة مع عروض وخصومات مميزة",
+        "headingHilightWords": {
+          "wordOne": "اللذيذة",
+          "wordTwo": "الأطباق"
+        },
+        "points": {
+          "locations": "يتم التوصيل لمنطقتي الرياض والدمام",
+          "delivery": "يتم التوصيل بأقصى سرعة في مدة لا تتجاوز 15 دقيقة من وقت تجهيز الطلب",
+          "shippingFees": "لا يوجد أي رسوم إضافية عند التوصيل",
+          "ordering": "يمكنك الإتصال لتجهيز طلبك وأخذه من المطعم بنفسك او تناولة داخل المطعم"
         }
       }
     }
   },
-  "components": {},
+  "components": {
+    "dishCard": {
+      "discount": "الخصم"
+    }
+  },
   "modals": {
     "rating": {
       "title": "تقييم طلبك",
@@ -387,6 +463,12 @@
         },
         "submitBtn": "تأكيد الإسم"
       }
+    },
+    "profileChangeNameModal": {
+      "title": "نغيير الأسم",
+      "label": "الإسم",
+      "placehodler": "برجاء ادخال اسم",
+      "saveBtn": "حفظ التعديلات"
     }
   }
 }

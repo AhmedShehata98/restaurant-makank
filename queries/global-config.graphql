@@ -1,0 +1,21 @@
+query GlobalConfig {
+  global_config {
+    id
+    restaurant_address
+    restaurant_phone
+    facebook_link
+    linkedin_link
+    twitter_link
+    instagram_link
+    snapchat_link
+    telegram_link
+    tiktok_link
+    whatsapp_link
+    terms
+    description
+    restaurant_logo {
+      id
+      type
+    }
+  }
+}

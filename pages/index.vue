@@ -20,11 +20,11 @@
   </div>
   <HomeHeroSection :is-open-restaurant />
   <HomeOffersSectionSquareTheme
-    v-if="appStore.layout.offerTheme === 'squared'"
+    v-if="settingsState.layout.offerTheme === 'squared'"
     :offers-list="offersList"
   />
   <HomeOffersSectionRoundedTheme
-    v-if="appStore.layout.offerTheme === 'rounded'"
+    v-if="settingsState.layout.offerTheme === 'rounded'"
     :offers-list="offersList"
   />
   <HomeMenusSection :menu-list />
@@ -37,9 +37,42 @@
 </template>
 <script setup lang="ts">
 import { useSettingsStore } from "~/store/settings-store";
+import { useQuery } from "@vue/apollo-composable";
+import { gql } from "@apollo/client/core";
+
+const GLOBAL_CONFIG = gql`
+  query GlobalConfig {
+    global_config {
+      id
+      restaurant_address
+      restaurant_phone
+      facebook_link
+      linkedin_link
+      twitter_link
+      instagram_link
+      snapchat_link
+      telegram_link
+      tiktok_link
+      whatsapp_link
+      terms
+      description
+      restaurant_logo {
+        id
+        type
+      }
+    }
+  }
+`;
+
+const gqlResponse = useQuery(GLOBAL_CONFIG);
+
+console.log("gqlResponse", gqlResponse);
 
 const { t } = useI18n();
-const appStore = useSettingsStore();
+useHead({
+  titleTemplate: (prevTitle) => `${prevTitle} | ${t("pages.home.seo.title")}`,
+});
+const settingsState = useSettingsStore();
 const isOpenRestaurant = ref(true);
 const offersList = computed(() => [
   {
@@ -165,4 +198,8 @@ const tabsItems = computed<
     label: t("pages.menu.categories.drinks"),
   },
 ]);
+
+onMounted(() => {
+  settingsState.setColoredAppHeader(false);
+});
 </script>

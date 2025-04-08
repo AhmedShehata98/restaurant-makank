@@ -1,15 +1,42 @@
 <template>
   <NuxtLayout name="profile">
-    <CustomBreadcrumb :items="breadcrumb" is-last-link-active />
+    <template #header>
+      <CustomBreadcrumb :items="breadcrumb" is-last-link-active />
+    </template>
     <!-- <LazyProfileCover
       username="user 1555405"
       avatar-img="https://picsum.photos/800/768"
       cover-img="https://picsum.photos/1200/764"
     />
     <LazySectionsNavButtons /> -->
-
+    <span class="flex md:hidden items-center justify-start w-full py-3">
+      <button
+        type="button"
+        class="cursor-pointer flex items-center justify-center"
+        @click="$router.back()"
+      >
+        <UIcon name="mdi:chevron-right" size="24" />
+      </button>
+      <p class="me-auto ps-3 text-sm font-semibold">
+        {{ $t("pages.profile.mobile.editName.title") }}
+      </p>
+      <LazyUDropdownMenu
+        :items="filterItems"
+        :content="{ align: 'start' }"
+        :ui="{ content: 'w-28' }"
+        class="md:hidden"
+      >
+        <UButton
+          :label="ORDER_FILTERS_LIST[ordersFilterValue]"
+          color="neutral"
+          variant="soft"
+          class="rounded-lg"
+          icon="i-lucide-chevron-down"
+        />
+      </LazyUDropdownMenu>
+    </span>
     <!-- Tabs -->
-    <div class="w-full flex items-center justify-between gap-3 mt-10">
+    <div class="w-full flex items-center justify-between gap-3 mt-4 md:mt-10">
       <UTabs
         v-model="activeTab"
         color="primary"
@@ -18,12 +45,16 @@
         :items="tabsItems"
         :dir="pageDir"
         class="w-full"
+        :ui="{
+          trigger: 'max-md:w-1/2',
+        }"
       />
 
       <UDropdownMenu
         :items="filterItems"
         :content="{ align: 'start' }"
         :ui="{ content: 'w-28' }"
+        class="max-md:hidden"
       >
         <UButton
           :label="ORDER_FILTERS_LIST[ordersFilterValue]"

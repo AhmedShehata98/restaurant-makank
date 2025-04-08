@@ -25,6 +25,15 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxtjs/leaflet",
   ],
+  runtimeConfig: {
+    apollo: {
+      clientConfigs: {
+        default: {
+          httpEndpoint: process.env.QRAPH_QL_HOST,
+        },
+      },
+    },
+  },
   ui: {
     colorMode: false,
     fonts: true,

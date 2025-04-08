@@ -4,21 +4,21 @@
       <div
         class="flex items-center justify-center gap-4 flex-col absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
       >
-        <h6 v-dynamic-color class="text-xl font-bold text-center text-white">
+        <h6 v-dynamic-color class="text-xl font-bold text-center !text-white">
           {{ $t("pages.home.sections.poster.title") }}
         </h6>
         <span class="flex items-center justify-center gap-4 text-center">
-          <h3 v-dynamic-color class="text-white font-extrabold text-[44px]">
+          <h3 v-dynamic-color class="!text-white font-extrabold text-[44px]">
             {{ $t("pages.home.sections.poster.subtitle") }}
           </h3>
-          <p v-dynamic-color class="text-white font-semibold text-lg">
+          <p v-dynamic-color class="!text-white font-semibold text-lg">
             {{ $t("pages.home.sections.poster.description") }}
           </p>
         </span>
         <button
           v-dynamic-color
           type="button"
-          class="bg-app-primary-400 rounded-md text-lg font-bold flex items-center justify-center px-10 py-2 hover:contrast-75 text-white"
+          class="bg-app-primary-400 rounded-md text-lg font-bold flex items-center justify-center px-10 py-2 hover:contrast-75 !text-white"
         >
           {{ $t("pages.home.sections.poster.cta") }}
         </button>

@@ -37,9 +37,9 @@ export const mockGetThemeRequest = (): Promise<string> => {
             menuTheme: "theme_1",
           },
           logo: {
-            DEFAULT: "~/public/images/logo.svg",
-            LIGHT: "~/public/images/logo-light.svg",
-            DARK: "~/public/images/logo.svg",
+            DEFAULT: "/images/logo.svg",
+            LIGHT: "/images/logo-light.svg",
+            DARK: "/images/logo.svg",
           } as LogoThemeType,
         })
       );

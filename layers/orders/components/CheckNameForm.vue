@@ -44,7 +44,7 @@
       </span>
       <button
         type="button"
-        class="btn btn-primary md:btn-black shrink-0 py-2.5 md:min-w-56 min-w-full"
+        class="btn bg-black text-white md:btn-black shrink-0 py-2.5 md:min-w-56 min-w-full"
       >
         {{ t("pages.orders.singinForm.confirmNameBtn") }}
       </button>

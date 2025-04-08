@@ -24,13 +24,15 @@
     >
       <button
         type="submit"
-        class="rounded-xl bg-app-primary-500 px-5 py-2 text-white hover:opacity-80 cursor-pointer"
+        class="rounded-xl bg-app-primary-500 px-5 py-2 text-white hover:opacity-80 cursor-pointer max-md:order-2"
+        @click="$router.push(ROUTES.PRODUCTS)"
       >
         {{ t("pages.checkout.model.submitBtn") }}
       </button>
       <button
         type="button"
-        class="rounded-xl bg-app-background-600 px-5 py-2 hover:opacity-80 text-text-color-default cursor-pointer"
+        class="rounded-xl bg-app-background-600 px-5 py-2 hover:opacity-80 text-text-color-default cursor-pointer max-md:order-1"
+        @click="$router.push(ROUTES.ORDERS)"
       >
         {{ t("pages.checkout.model.cancelBtn") }}
       </button>
@@ -38,5 +40,7 @@
   </div>
 </template>
 <script setup>
+import { ROUTES } from "~/constants/routes";
+
 const { t } = useI18n();
 </script>

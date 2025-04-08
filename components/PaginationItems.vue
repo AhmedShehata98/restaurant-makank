@@ -34,7 +34,7 @@
       v-for="item of pages"
       :key="item"
       type="button"
-      class="flex size-10 items-center justify-center rounded-xl bg-[#F5F5F8] text-black"
+      class="flex size-10 cursor-pointer items-center justify-center rounded-xl bg-[#F5F5F8] text-black"
       :class="
         clsx({
           'bg-black text-white': currentPage && currentPage === item,

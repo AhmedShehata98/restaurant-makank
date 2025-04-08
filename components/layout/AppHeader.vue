@@ -155,7 +155,8 @@
     <!-- Notification Menu -->
 
     <LazyNotificationMenu
-      v-if="isOpenNotificationsMenu"
+      :is-open="isOpenNotificationsMenu"
+      :is-full-screen="isSmallScreen"
       @close="isOpenNotificationsMenu = false"
     />
 
@@ -173,15 +174,16 @@
         </button>
 
         <appLogo
-          class="!w-20"
+          class="!w-18 me-10"
           :logo-theme="settingsStore.isColoredAppHeader ? 'LIGHT' : 'DEFAULT'"
         />
         <button
           type="button"
-          class="flex items-center justify-center rounded-xl bg-app-primary-500 size-10 relative"
+          class="flex items-center justify-center rounded-xl bg-app-primary-500 size-10 relative text-white"
+          @click="isOpenNotificationsMenu = true"
         >
           <span
-            class="absolute -top-2 -right-2 w-6 h-6 text-center flex items-center justify-center rounded-full bg-neutral-800 text-sm text-white"
+            class="absolute -top-2 -right-2 w-6 h-6 text-center flex items-center justify-center rounded-full text-sm text-white bg-black"
           >
             15</span
           >
@@ -212,6 +214,7 @@ const items = [
 ];
 const switchLocalePath = useSwitchLocalePath();
 const router = useRouter();
+const isSmallScreen = useMediaQuery("(max-width:768px)");
 const isOpenNotificationsMenu = ref(false);
 const settingsStore = useSettingsStore();
 const { y } = useScroll(window);

@@ -9,10 +9,10 @@
 </template>
 <script setup lang="ts">
 import { useSettingsStore } from "~/store/settings-store";
-import { LogoThemeEnum } from "~/types/shared";
+import type { LogoThemeEnum } from "~/types/shared";
 
 const appStore = useSettingsStore();
-console.log(appStore.logo.DEFAULT);
+
 defineProps<{
   logoTheme: keyof typeof LogoThemeEnum;
 }>();

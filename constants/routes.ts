@@ -8,6 +8,8 @@ export const ROUTES = {
   PROFILE__ADDRESS: "/profile/address",
   PROFILE__ABOUT_US: "/profile/about-us",
   PROFILE__ADDRESS__ADD: "/profile/address/add",
+  PROFILE__ORDER_DETAILS: "/profile/my-orders/order-details",
   OFFERS: "/offers",
+  PRIVAICY_CONDITIONS: "terms-of-privacy",
   CHECKOUT: "/checkout",
 };

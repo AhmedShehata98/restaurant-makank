@@ -5,6 +5,7 @@
     :state="state"
     @submit="onSubmit"
   >
+    <slot name="header" />
     <UFormField
       :label="t('pages.profile.addressContent.form.addressName')"
       name="addressName"
@@ -129,5 +130,5 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
   console.log(event.data);
 }
 
-const { t } = useI18n<unknown, MessageSchema>();
+const { t } = useI18n();
 </script>

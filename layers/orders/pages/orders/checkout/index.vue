@@ -92,7 +92,8 @@
               </p>
               <button
                 type="button"
-                class="text-sm font-semibold text-app-secondary-500"
+                class="text-sm font-semibold text-app-secondary-500 cursor-pointer"
+                @click="isOpenAddressModal = true"
               >
                 {{ t("pages.checkout.form.addAddressBtn") }}
               </button>
@@ -206,6 +207,7 @@
         <button
           type="submit"
           class="mt-5 w-full bg-app-primary-500 py-2 px-8 rounded-xl text-white mb-6 cursor-pointer hover:opacity-80"
+          @click="isOpenConfirmModal = true"
         >
           {{ t("pages.checkout.form.checkoutBtn") }}
         </button>
@@ -218,6 +220,7 @@
         overlay: 'bg-app-background-500/60',
         content: 'rounded-3xl',
       }"
+      :open="isOpenConfirmModal"
     >
       <template #content>
         <ConfirmModalContent />
@@ -225,14 +228,38 @@
     </UModal>
     <UModal
       overlay
+      :fullscreen="isSmallScreen"
       :ui="{
         overlay: 'bg-app-background-500/60',
-        content: 'rounded-3xl',
+        content: 'rounded-none md:rounded-lg',
       }"
-      open
+      :open="isOpenAddressModal"
     >
       <template #content>
-        <CreateAddressModal />
+        <div class="w-full flex flex-col px-3 py-4 overflow-y-auto">
+          <span class="flex items-center justify-start w-full py-3 mb-10">
+            <button
+              type="button"
+              class="cursor-pointer"
+              @click="isOpenAddressModal = false"
+            >
+              <UIcon name="mdi:chevron-right" size="24" />
+            </button>
+            <p class="mx-auto text-sm font-semibold pe-7">
+              {{ $t("pages.profile.addressContent.editHeadingTitle") }}
+            </p>
+          </span>
+          <AddressForm>
+            <template #actionBtn>
+              <button
+                type="submit"
+                class="btn bg-green-default text-white font-semibold py-3 mt-10 mb-4"
+              >
+                {{ $t("pages.profile.addressContent.form.saveBtn") }}
+              </button>
+            </template>
+          </AddressForm>
+        </div>
       </template>
     </UModal>
   </section>
@@ -242,7 +269,11 @@ import { ROUTES } from "~/constants/routes";
 import * as z from "zod";
 import type { FormSubmitEvent } from "@nuxt/ui";
 import CreateAddressModal from "~/layers/orders/components/checkout/CreateAddressModal.vue";
+import ConfirmModalContent from "~/layers/orders/components/checkout/ConfirmModalContent.vue";
 
+const { t, locale } = useI18n();
+const isOpenAddressModal = shallowRef(false);
+const isOpenConfirmModal = shallowRef(false);
 const schema = z.object({
   phoneNumber: z.string(),
   name: z.string(),
@@ -251,9 +282,11 @@ const schema = z.object({
   pickUpFromLocation: z.boolean(),
   paymentMethod: z.enum(["card", "paypal", "google-pay", "apple-pay"]),
 });
-
+useHead({
+  titleTemplate: (prevTitle) =>
+    `${prevTitle} | ${t("pages.checkout.seo.title")}`,
+});
 type Schema = z.output<typeof schema>;
-const { t, locale } = useI18n();
 
 const state = reactive<Partial<Schema>>({
   phoneNumber: undefined,
@@ -265,6 +298,7 @@ const state = reactive<Partial<Schema>>({
 });
 
 const toast = useToast();
+const isSmallScreen = useMediaQuery("(max-width:768px)");
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   toast.add({
     title: "Success",
@@ -296,6 +330,10 @@ const items = [
   {
     label: t("layouts.header.nav.home"),
     to: ROUTES.HOME,
+  },
+  {
+    label: t("layouts.header.nav.orders"),
+    to: ROUTES.ORDERS,
   },
   {
     label: t("layouts.header.nav.checkout"),

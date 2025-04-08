@@ -179,7 +179,9 @@
     <!-- Order Summery -->
     <HomeOrderSummery :total-price="2099" :dishes-count="4" class="!mt-5" />
     <!-- Related Products -->
-    <div class="flex-col hidden md:flex gap-4 pt-16 app-container">
+    <div
+      class="flex-col hidden md:flex gap-4 pt-16 app-container w-(--container-width)"
+    >
       <span class="hidden tablet:flex items-center justify-between gap-3">
         <p class="text-text-color-default text-[20px] font-bold">
           {{ $t("pages.productDetails.relatedProducts") }}
@@ -210,11 +212,14 @@ import clsx from "clsx";
 import { ROUTES } from "~/constants/routes";
 import { useSettingsStore } from "~/store/settings-store";
 
+const { t, locale } = useI18n();
 const route = useRoute();
+useHead({
+  title: `${route.params.productId}`,
+});
 const productImagesListRef = ref(null);
 const count = ref(0);
 const settingsStore = useSettingsStore();
-const { t, locale } = useI18n();
 const isMaxMediumScreen = useMediaQuery("(max-width: 768px)");
 const swiperDirection = computed(() =>
   isMaxMediumScreen.value ? "horizontal" : "vertical"
@@ -290,12 +295,12 @@ const menu = [
 
 const items = ref([
   {
-    label: t("layouts.header.nav.home"),
-    to: ROUTES.HOME,
+    label: t("layouts.header.nav.home") as string,
+    to: ROUTES.HOME as string,
   },
   {
-    label: t("layouts.header.nav.menu"),
-    to: ROUTES.PRODUCTS,
+    label: t("layouts.header.nav.menu") as string,
+    to: ROUTES.PRODUCTS as string,
   },
   {
     label: route.params.productId,

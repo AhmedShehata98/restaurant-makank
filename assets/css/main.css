@@ -137,6 +137,7 @@
 
 .app-container {
   max-width: var(--container-width);
+  /* width: var(--container-width); */
   margin: 0 auto;
   padding-inline: var(--container-padding);
   transition: max-width 0.5s ease-in-out, padding 0.5s ease-in-out,

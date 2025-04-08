@@ -5,7 +5,9 @@
       :key="item.to"
       class="flex items-center justify-start gap-2 text-app-subtitle-default"
     >
-      <UIcon name="mdi-light:chevron-left" />
+      <button type="button" :class="clsx({ hidden: idx === 0 })">
+        <UIcon name="mdi-light:chevron-left" />
+      </button>
       <NuxtLinkLocale :to="item.to" class="flex items-center justify-center">
         <UIcon
           v-if="item?.icon"

@@ -5,7 +5,7 @@
       <!-- sign0in box -->
       <!-- <CheckNameForm /> -->
       <!-- <OTPConfirmationForm /> -->
-      <!-- <SigninForm /> -->
+      <SigninForm />
       <OrderSummeryConfirmation class="md:hidden" />
 
       <!-- Order items -->
@@ -36,6 +36,10 @@
 import { ROUTES } from "~/constants/routes";
 import { useSettingsStore } from "~/store/settings-store";
 
+const { t } = useI18n();
+useHead({
+  titleTemplate: (prevTitle) => `${prevTitle} | ${t("pages.orders.seo.title")}`,
+});
 const formattedTotalPrice = useFormatPrice(1789);
 const cartItems = [
   {
@@ -69,7 +73,6 @@ const cartItems = [
 const cartItemsLength = cartItems.length;
 const settingsStore = useSettingsStore();
 const isMaxMediumScreen = useMediaQuery("(max-width: 768px)");
-const { t } = useI18n();
 const items = ref([
   {
     label: t("layouts.header.nav.home"),

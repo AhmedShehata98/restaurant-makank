@@ -11,9 +11,22 @@
       >
         {{ $t("pages.home.sections.ourMenu.description") }}
       </p>
+      <NuxtLinkLocale
+        to="/menus"
+        class="text-app-primary-500 text-[16px] md:hidden flex font-bold items-center justify-center gap-3 mb-4 mt-5"
+      >
+        <h3>
+          {{ $t("pages.home.sections.ourMenu.fullMenuButton") }}
+        </h3>
+        <span
+          class="flex items-center justify-center size-6 rounded-full border border-dashed rotate-45"
+        >
+          <UIcon name="material-symbols:arrow-left-alt-rounded" />
+        </span>
+      </NuxtLinkLocale>
     </div>
     <ul
-      class="mt-3 lg:mt-14 grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-11 md:min-h-[580px]"
+      class="mt-2 lg:mt-14 grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-11 md:min-h-[580px]"
     >
       <ProductCategoryCard
         v-for="(item, index) of menuList"
