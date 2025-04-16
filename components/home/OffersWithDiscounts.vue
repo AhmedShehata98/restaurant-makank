@@ -1,5 +1,6 @@
 <template>
   <section
+    :id="ROUTES.OFFERS.replaceAll(/[\/#]/g, '')"
     class="app-container flex items-center justify-center flex-col gap-3 lg:gap-14 pt-5 lg:pt-14"
   >
     <h1
@@ -9,9 +10,9 @@
     </h1>
     <ul class="offers-wrapper">
       <li
-        v-memo="collection"
         v-for="(item, idx) of collection"
         :key="idx"
+        v-memo="collection"
         class="item"
       >
         <img :src="item" alt="offer-img" class="w-full object-cover" />
@@ -20,6 +21,8 @@
   </section>
 </template>
 <script setup lang="ts">
+import { ROUTES } from "~/constants/routes";
+
 defineProps<{
   collection: string[];
 }>();

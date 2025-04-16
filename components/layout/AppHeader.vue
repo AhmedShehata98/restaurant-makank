@@ -199,7 +199,6 @@ import clsx from "clsx";
 import { useSettingsStore } from "~/store/settings-store";
 import { ROUTES } from "~/constants/routes";
 import { useScroll } from "@vueuse/core";
-
 const { t, locales, locale } = useI18n();
 const items = [
   {

@@ -79,10 +79,9 @@
       class="w-full md:w-[25%] bg-app-background-500 md:gap-5 flex md:flex-col"
     >
       <p
-        class="relative flex items-center justify-center tablet:justify-end p-2 ps-6 rounded-lg text-xs font-semibold min-h-[50%] w-full max-md:rounded-none max-md:rounded-ss-lg"
+        class="relative flex items-center clip-path-arrow justify-center tablet:justify-end p-2 ps-6 rounded-lg text-xs font-semibold min-h-[50%] w-full max-md:rounded-none max-md:rounded-ss-lg"
         :style="{
           ...orderStatusStyles.firstCard,
-          clipPath: 'polygon(0 0, 94% 1%, 100% 50%, 94% 100%, 0 100%, 0% 50%)',
         }"
       >
         {{
@@ -92,11 +91,8 @@
         }}
       </p>
       <p
-        class="relative flex items-center justify-center tablet:justify-end p-2 ps-6 text-xs font-semibold min-h-[50%] w-full max-md:rounded-none max-md:rounded-se-lg isolate md:rounded-lg"
-        :style="{
-          ...orderStatusStyles.secondCard,
-          clipPath: 'polygon(0 0, 94% 1%, 100% 50%, 94% 100%, 0 100%, 0% 50%)',
-        }"
+        class="relative flex items-center justify-center clip-path-arrow tablet:justify-end p-2 ps-6 text-xs font-semibold min-h-[50%] w-full max-md:rounded-none max-md:rounded-se-lg isolate md:rounded-lg"
+        :style="{ ...orderStatusStyles.secondCard }"
       >
         {{
           t(
@@ -166,3 +162,10 @@ defineEmits<{
   (e: "on-navigate-order-details"): void;
 }>();
 </script>
+<style lang="css">
+@media screen and (min-width: 768px) {
+  .clip-path-arrow {
+    clip-path: polygon(0 0, 94% 1%, 100% 50%, 94% 100%, 0 100%, 0% 50%);
+  }
+}
+</style>

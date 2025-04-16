@@ -1,4 +1,5 @@
 import tailwindcss from "@tailwindcss/vite";
+import typography from "@tailwindcss/typography";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -24,16 +25,39 @@ export default defineNuxtConfig({
     "compodium",
     "@vueuse/nuxt",
     "@nuxtjs/leaflet",
+    "@nuxtjs/apollo",
   ],
+  
   runtimeConfig: {
-    apollo: {
-      clientConfigs: {
-        default: {
-          httpEndpoint: process.env.QRAPH_QL_HOST,
+    public: {
+      apollo: {
+        clients: {
+          default: {
+            // httpEndpoint: 'https://spacex-production.up.railway.app'
+            httpEndpoint: process.env.QRAPH_QL_HOST,
+          },
         },
+      },
+      graphql: {
+        clients: {
+          default: {
+            httpEndpoint: process.env.QRAPH_QL_HOST,
+            tokenKey: "graphql-token",
+          },
+        },
+      },
+      apiBaseUrl: process.env.API_BASE_URL,
+      isRestaurantTemplate: process.env.IS_RESTAURANT_TEMPLATE,
+    },
+  },
+  apollo: {
+    clients: {
+      default: {
+        httpEndpoint: process.env.QRAPH_QL_HOST,
       },
     },
   },
+
   ui: {
     colorMode: false,
     fonts: true,
@@ -50,6 +74,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   i18n: {
     locales: [
       { code: "ar", iso: "ar-SA", file: "ar.json", dir: "rtl" },
@@ -69,7 +94,7 @@ export default defineNuxtConfig({
     },
   },
   extends: ["./layers/base-layer", "./layers/products", "./layers/orders"],
-  plugins: ["./plugins/dynamic-text-color.ts"],
+  plugins: ["./plugins/dynamic-text-color.ts",'./plugins/graphql-fetch.ts'],
   alias: {
     "@/assets": "./assets",
     "@/utils": "./utils",
@@ -83,4 +108,5 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  // ssr: false,
 });

@@ -18,83 +18,30 @@
       />
     </div>
   </div>
-  <HomeHeroSection :is-open-restaurant />
-  <HomeOffersSectionSquareTheme
-    v-if="settingsState.layout.offerTheme === 'squared'"
-    :offers-list="offersList"
-  />
-  <HomeOffersSectionRoundedTheme
-    v-if="settingsState.layout.offerTheme === 'rounded'"
-    :offers-list="offersList"
-  />
+  <HomeHeroSection />
+  <HomeOffersSectionSquareTheme />
   <HomeMenusSection :menu-list />
   <HomeOrderSummery :dishes-count="7" :total-price="253" />
   <HomeDeliveryServicesSection />
   <HomeFeaturedDishes :dishes-list="dishesList" />
   <HomeDownloadAppSection />
   <HomeOffersWithDiscounts :collection />
-  <HomePosterSection poster-type="restaurant" />
+  <HomePosterSection
+    :poster-type="
+      $config.public.isRestaurantTemplate === 'true' ? 'restaurant' : 'coffee'
+    "
+  />
 </template>
 <script setup lang="ts">
 import { useSettingsStore } from "~/store/settings-store";
-import { useQuery } from "@vue/apollo-composable";
-import { gql } from "@apollo/client/core";
-
-const GLOBAL_CONFIG = gql`
-  query GlobalConfig {
-    global_config {
-      id
-      restaurant_address
-      restaurant_phone
-      facebook_link
-      linkedin_link
-      twitter_link
-      instagram_link
-      snapchat_link
-      telegram_link
-      tiktok_link
-      whatsapp_link
-      terms
-      description
-      restaurant_logo {
-        id
-        type
-      }
-    }
-  }
-`;
-
-const gqlResponse = useQuery(GLOBAL_CONFIG);
-
-console.log("gqlResponse", gqlResponse);
 
 const { t } = useI18n();
 useHead({
   titleTemplate: (prevTitle) => `${prevTitle} | ${t("pages.home.seo.title")}`,
 });
+
 const settingsState = useSettingsStore();
 const isOpenRestaurant = ref(true);
-const offersList = computed(() => [
-  {
-    headingTitle: "أطلب الآن والتوصيل مجاني لأول طلب",
-    description: "",
-    cta: "أطلب الآن",
-    img: "/images/pin-img.svg",
-  },
-  {
-    headingTitle: "أكتشف العروض الجديدة",
-    description:
-      "عروض العائلة والمناسبات والخصومات الرهيبة بانتظارك في مطعم مكانك",
-    cta: "العروض",
-    img: "/images/gift-img.svg",
-  },
-  {
-    headingTitle: "خصم يصل إلى 50% وتوصيل مجاني لوجبات العائلة",
-    description: "بانتظار اتصالك الآن",
-    cta: "",
-    img: "/images/fire-img.svg",
-  },
-]);
 const menuList = computed(() => [
   {
     id: 1,

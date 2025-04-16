@@ -46,3 +46,4 @@ export const mockGetThemeRequest = (): Promise<string> => {
     }, 1000);
   });
 };
+

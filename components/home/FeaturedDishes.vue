@@ -1,5 +1,8 @@
 <template>
-  <section class="app-container flex flex-col h-fit">
+  <section
+    :id="ROUTES.FEATURED_PRODUCTS.replaceAll(/[\/#]/g, '')"
+    class="app-container flex flex-col h-fit"
+  >
     <div
       class="flex items-center justify-between flex-wrap gap-3 w-full mt-10 tablet:mt-16 mb-4 tablet:mb-14"
     >
@@ -31,6 +34,8 @@
   </section>
 </template>
 <script setup lang="ts">
+import { ROUTES } from "~/constants/routes";
+
 defineProps<{
   dishesList: any[];
 }>();

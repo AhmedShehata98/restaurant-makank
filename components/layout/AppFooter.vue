@@ -8,22 +8,21 @@
           <AppLogo logo-theme="DEFAULT" />
         </div>
         <p class="font-semibold text-base text-start text-app-text-default">
-          {{ $t("layouts.footer.description") }}
+          {{ data?.global_config.description }}
         </p>
-        <ul class="w-full flex items-center justify-start gap-3">
-          <li class="flex items-center justify-center">
-            <NuxtLink>
-              <img src="/icons/x-icon.svg" alt="x-icon.svg" />
-            </NuxtLink>
-          </li>
-          <li class="flex items-center justify-center">
-            <NuxtLink>
-              <img src="/icons/telegram-icon.svg" alt="telegram-icon.svg" />
-            </NuxtLink>
-          </li>
-          <li class="flex items-center justify-center">
-            <NuxtLink>
-              <img src="/icons/facebook-icon.svg" alt="facebook-icon.svg" />
+        <ul
+          class="w-full grid grid-cols-7 sm:grid-cols-8 md:grid-cols-9 items-center justify-start gap-3"
+        >
+          <li
+            v-for="platform of data?.global_config.social_links"
+            :key="platform.id"
+            class="flex items-center justify-center"
+          >
+            <NuxtLink :href="platform.url">
+              <img
+                :src="withImageSrc(platform.icon_image.id)"
+                alt="platform.id"
+              />
             </NuxtLink>
           </li>
         </ul>
@@ -32,17 +31,40 @@
         <h4 class="text-[24px] font-medium text-app-text-default">
           {{ $t("layouts.footer.websiteLinks.title") }}
         </h4>
-        <ul>
-          <li
+        <nav class="grid grid-flow-row-dense gap-1">
+          <NuxtLinkLocale
+            v-for="item of navigationList"
+            :key="item.id"
+            :href="item.to"
             class="flex items-center justify-start gap-3 text-app-subtitle-default"
           >
             <UIcon
               name="material-symbols:keyboard-arrow-down-rounded"
               class="rotate-90"
             />
-            <p>{{ $t("layouts.footer.websiteLinks.links.home") }}</p>
-          </li>
-          <li
+            <p>{{ item.title }}</p>
+          </NuxtLinkLocale>
+          <NuxtLinkLocale
+            :href="ROUTES.ABOUT_US_SECTION"
+            class="hidden md:flex items-center justify-start gap-3 text-app-subtitle-default"
+          >
+            <UIcon
+              name="material-symbols:keyboard-arrow-down-rounded"
+              class="rotate-90"
+            />
+            <p>{{ t("layouts.footer.websiteLinks.links.aboutUs") }}</p>
+          </NuxtLinkLocale>
+          <NuxtLinkLocale
+            :href="ROUTES.PROFILE__ABOUT_US"
+            class="flex md:hidden items-center justify-start gap-3 text-app-subtitle-default"
+          >
+            <UIcon
+              name="material-symbols:keyboard-arrow-down-rounded"
+              class="rotate-90"
+            />
+            <p>{{ t("layouts.footer.websiteLinks.links.aboutUs") }}</p>
+          </NuxtLinkLocale>
+          <!-- <li
             class="flex items-center justify-start gap-3 text-app-subtitle-default"
           >
             <UIcon
@@ -104,8 +126,8 @@
               class="rotate-90"
             />
             <p>{{ $t("layouts.footer.websiteLinks.links.aboutUs") }}</p>
-          </li>
-        </ul>
+          </li> -->
+        </nav>
       </div>
       <div class="flex flex-col gap-3">
         <h4 class="text-[24px] font-medium text-app-text-default">
@@ -140,13 +162,65 @@
       <p class="text-app-text-default font-semibold text-sm">
         {{ $t("layouts.footer.copyright") }}
       </p>
-      <p class="text-app-text-default font-semibold text-sm">
+      <NuxtLinkLocale
+        :href="ROUTES.PRIVAICY_CONDITIONS"
+        class="text-app-text-default font-semibold underline text-sm"
+      >
         {{ $t("layouts.footer.termsAndConditions") }}
-      </p>
+      </NuxtLinkLocale>
     </section>
   </footer>
 </template>
-<script setup>
+<script setup lang="ts">
+import { footerQuery } from "~/api/graphql/queries/global-config";
+import { QUERIES_KEYS } from "~/constants/queries-keys";
+import { ROUTES } from "~/constants/routes";
+import type { GlobalConfig } from "~/types/global-config";
+
+const { data } = await useGraphQL<{ global_config: GlobalConfig }>(
+  footerQuery,
+  undefined,
+  { key: QUERIES_KEYS.FOOTER }
+);
+const { withImageSrc } = useImageSrc();
+const { t } = useI18n();
+const navigationList = computed(() => [
+  {
+    id: "1",
+    title: t("layouts.footer.websiteLinks.links.home"),
+    to: ROUTES.HOME,
+  },
+  {
+    id: "2",
+    title: t("layouts.footer.websiteLinks.links.contactUs"),
+    to: ROUTES.CONTACT_US,
+  },
+  {
+    id: "3",
+    title: t("layouts.footer.websiteLinks.links.menu"),
+    to: ROUTES.PRODUCTS,
+  },
+  {
+    id: "4",
+    title: t("layouts.footer.websiteLinks.links.offers"),
+    to: ROUTES.OFFERS,
+  },
+  {
+    id: "5",
+    title: t("layouts.footer.websiteLinks.links.privacyPolicy"),
+    to: ROUTES.PRIVAICY_CONDITIONS,
+  },
+  {
+    id: "6",
+    title: t("layouts.footer.websiteLinks.links.cart"),
+    to: ROUTES.ORDERS,
+  },
+  {
+    id: "7",
+    title: t("layouts.footer.websiteLinks.links.featuredDishes"),
+    to: ROUTES.FEATURED_PRODUCTS,
+  },
+]);
 const menuList = computed(() => [
   {
     id: 1,

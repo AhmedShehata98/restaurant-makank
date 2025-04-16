@@ -1,27 +1,19 @@
+import type { ThemeResponse } from "~/types/settings";
+import type { LogoThemeType } from "~/types/shared";
+import type { File } from "~/types/global-config";
 import { config } from "~/constants/default-config";
 import { STORE_KEYS } from "./store-keys";
 import { mockGetThemeRequest } from "~/api/settings";
-import type { ThemeResponse } from "~/types/settings";
-import type { LogoThemeType } from "~/types/shared";
+import { QUERIES_KEYS } from "~/constants/queries-keys";
+import { logoQuery } from "~/api/graphql/queries/global-config";
+import { themeQuery } from "~/api/graphql/queries/theme";
+import type { ColorsType, Theme } from "~/types/theme";
 
 // types
 
 type LayoutType = {
   offerTheme: "rounded" | "squared";
   menuTheme: "theme_1" | "theme_2";
-};
-
-type ColorsType = {
-  primary: string;
-  secondary: string;
-  third: string;
-  background: string;
-  subtitle: string;
-  inputHint: string;
-  ms: string;
-  green: string;
-  red: string;
-  textColor: string;
 };
 
 type FontType = {
@@ -72,7 +64,7 @@ export type SettingsActionsType = {
   setFontCdn: (cdn: { primary: string; secondary: string }) => void;
   fetchAppSettings: () => Promise<string>;
   initializeAppSettings: () => Promise<void>;
-  getColorsValues: (data: ThemeResponse) => GeneratedColorsValuesType | null;
+  getColorsShades: (data: ThemeResponse) => GeneratedColorsValuesType | null;
   combineColorsCssVars: (
     colorsValues: GeneratedColorsValuesType | null
   ) => CombinedColorsWithCssVarsType | null;
@@ -125,17 +117,44 @@ export const useSettingsStore = defineStore<
     async fetchAppSettings() {
       return await mockGetThemeRequest();
     },
+
     async initializeAppSettings() {
       try {
         const response = await this.fetchAppSettings();
-        const data = JSON.parse(response) as ThemeResponse;
+        // const {withImageSrc} = useImageSrc()
+        // const {data:logo} = await useApolloQuery<{
+        //   global_config:{restaurant_logo:File}
+        // }>({query:logoQuery},{key:QUERIES_KEYS.LOGO});
+        // const {data:theme} = await useApolloQuery<{
+        //   themes: Theme[]
+        // }>({query:themeQuery},{key:QUERIES_KEYS.THEME});
 
+        // if(!logo.value ){
+        //   createError('Logo data is not defined [settings store] ,or fetch failed')
+        //   return
+        // }
+        // if(!theme.value ){
+        //   createError('Theme data is not defined [settings store] ,or fetch failed')
+        //   return
+        // }
+        // const logoObj = {
+        //   DEFAULT:withImageSrc(logo?.value?.global_config.restaurant_logo?.id ),
+        //   DARK: withImageSrc(logo?.value?.global_config.restaurant_logo?.id),
+        //   LIGHT:withImageSrc(logo?.value?.global_config.restaurant_logo?.id),
+        // }
+        // const transformedThemes = computed(()=> convertThemesToObject(theme.value.themes))
+        const data = JSON.parse(response) as ThemeResponse;
+        // const colors = {...transformedThemes.value,third:'#D6D6D6'};
         // apply themes and settings
-        const colorsValues = this.getColorsValues(data);
+        const colorsValues = this.getColorsShades({
+          ...data,
+          // colors,
+        });
         const combinedProperties = this.combineColorsCssVars(colorsValues);
         this.applySetting(combinedProperties);
 
         // Set settings in the store
+        // this.setColors(data.colors);
         this.setColors(data.colors);
         this.setFontCdn(data.font.cdn);
         this.setFontName({
@@ -151,7 +170,7 @@ export const useSettingsStore = defineStore<
         );
       }
     },
-    getColorsValues(data) {
+    getColorsShades(data) {
       if (data) {
         return {
           APP_PRIMARY: generateShades(data.colors.primary as string),

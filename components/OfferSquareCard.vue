@@ -1,10 +1,7 @@
 <template>
   <li class="card">
-    <p
-      v-if="offer.headingTitle"
-      class="text-white text-sm lg:text-2xl font-bold mb-3"
-    >
-      {{ offer.headingTitle }}
+    <p v-if="offer.title" class="text-white text-sm lg:text-2xl font-bold mb-3">
+      {{ offer.title }}
     </p>
     <p
       v-if="offer.description"
@@ -16,40 +13,40 @@
       class="absolute z-[1] bottom-3 left-0 px-6 w-full flex items-center justify-between"
     >
       <button
-        v-if="offer.cta"
+        v-if="offer.action"
         type="button"
         class="btn text-base btn-primary-outline"
       >
-        {{ offer.cta }}
+        {{ offer.action }}
       </button>
       <img
-        src="~/public/images/telephone-img.svg"
+        v-if="offer.action_image"
+        :src="withImageSrc(offer.action_image.id)"
         alt="telephone.svg"
         width="24"
         height="24"
         class="w-10 mt-8 hidden"
       />
       <img
-        :src="offer.img"
+        v-if="offer.image"
+        :src="withImageSrc(offer.image.id)"
         alt="offer-img"
         width="100"
         height="100"
-        class="w-24 ms-auto max-md:w-20"
+        class="w-20 ms-auto max-md:w-18 object-cover"
       />
     </div>
     <span
       class="size-[12vw] flex border-2 border-dashed bg-app-primary-500 border-white absolute top-[65%] -left-[18%] rounded-full aspect-square"
-    ></span>
+    />
   </li>
 </template>
 <script setup lang="ts">
+import type { HeroCard } from "~/types/hero.types";
+
+const { withImageSrc } = useImageSrc();
 defineProps<{
-  offer: {
-    img: string;
-    headingTitle: string;
-    description?: string | null;
-    cta?: string | null;
-  };
+  offer: HeroCard;
 }>();
 </script>
 <style scoped lang="css">
